@@ -1,0 +1,48 @@
+import java.util.*;
+class Node
+{
+  int data;
+  Node pre;
+  Node next;
+}
+public class Main
+{
+  static Node head;
+  static Node last;
+  static Node temp;
+  static Scanner sc = new Scanner (System.in);
+  public static void main (String arg[])
+  {
+	System.out.println ("Enter number of Elements");
+	int n = sc.nextInt ();
+	  create (n);
+	  sum();
+  }
+  static void create (int n)
+  {
+	System.out.println ("Enter the Element up to " + n);
+	head = new Node ();
+	head.data = sc.nextInt ();
+	head.next = null;
+	Node temp = head;
+	for (int i = 2; i <= n; i++)
+	  {
+		Node newnode = new Node ();
+		newnode.data = sc.nextInt ();
+		newnode.next = null;
+		temp.next = newnode;
+		temp = temp.next;
+	  }
+	last = temp;
+
+  }
+  static void sum(){
+      Node temp=head;
+      int m=head.data+last.data;
+            System.out.println("Sum of first Node "+head.data+" and Last Node "+last.data+ " is "+m);
+
+      int n=m%9;
+      System.out.println("Sum of the Digits of "+ m+" is ");
+      System.out.println(n);
+  }
+}
